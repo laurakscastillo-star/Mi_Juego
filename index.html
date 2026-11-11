@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Operación Cóndor</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAwFBMVEWmGiiaZg9iVBEdVB/NFDHZSGFRYxH9/v5HLRV/f39Ma0K7OUE2YijhLEY/Pz8uPyhAby8KEQgHCwUsVSIAAAAWKBEcNxZAcC8+bi4kRhsiOxjPOEYxYSqMSjmtJje0Q0FOVy0sJg/QKkHnNUoAfwArFw5BcjBDcjRRe0ZpUjOLZAM+fT1PGBtVVVVuGiR2OywmUR5EeTNEeTNEdzJ3TDQuSyVGezQaUxw+ai1/fwCsNzsA/wA2ZSxTNCNFYjuQJC8gPQpCAAAAQHRSTlP////8//8I//8C//8b/wT/u/79/wD+/7jH/v////////////8C/87w////Bv8D////UGyO//82/ysC/wEU////rtwwXAAABGVJREFUeNqdV4t24jgMTYF2OtOZ3bUcO7VNgJDyppRX6bv9/79a2Y6TECdtGR0OhsS61pVsWQpCK7fhieIUAjvchOFhu4u+KbvtIQxfXgqApzDcjLv3kn1T5D0db8LwwgE8hb+jLiNwijAavRoagTb/cSwAyEkCICaP2oYgvHl6HcsT1Q2EnFzg4gHaEYlP9IEYbnVvRBT+DINFuOlCo51aXQrO9G//Nd2Ei+AmHDOoV9aPGWeCogjuQwC7XiCFQ7dWHVUzoZlIDwLoAQG291A1G6OEisxSIDQXTqDihR0C7I5CAAQXQvWMwjEAXR+zBR4hQFR+CMm8dVbiiwOjZeFlGugEBPivBAAwvySts2KSB0BFiYYFKFkAqKyllU/yAcoIPkBrniSjUTI/gyKSnHoIjQCEtOZaWnb/6UhKKaoA6IdmCpyQxOiaSDJGGPMBqNOoAgARbgMCky6SNQDrzA0eAM9+AvAskkijBsCRqAAggVyfZZFsAMhIVAHcTs0taQYQNQDoNU+fwMfzQx0AJeADZAbkQHr9kVKtNW3ywhFA4QFJcv48iOM6E4QQHgW3cMGECEaGg4Gi66oy7U6mWusYgLsxY6I3xapPaT8uTFgLsaaT6fQX9cOYKeZMtD7pzSidqXVpaVS+T3CyFwWnCIwV41JpRbV/cHb/er+3KYt7UcgBXAzxVEAv1gD7qwetPH3/F18d8a0CGLFHwPwdKWu7ak3f32X+2NxsHgCGzFKXzAxMEtI7swDxFQN9MLPHxj5e8QHoR/ri1bHTA/59RgO65nPVSbLXTJhv/Rq+oPA21OvfBcGdtmH4Rr6gUHEirFKMYPeuc37euUMbZumqblZTGIF8qAEu3A3Of/w4D7QfBqqHj/Mg+2EsbyQYdfrGe91AOQDckcMR5CeeN+5EfZaWaWx1kIKyFEww0iWRRwevcpjcGKSzttv8mRONtAcqqM71jzPufzR/MNtnNqDYX/sZeqXfszzz1OElFBgN07ivVG8YH2eA/bCnVD9O0yWUUkdNSut1PlZvSbGNnaglQPK2+uj1ytm7klSlK4j0BH2SteesJYMhzm5nNQ+R9RdLkYtAMpNLdOyUHVfAhJe0P79YhoO23j0s0HtKjbirDMpJt+5qc6/az/Hsz0ongOWf/f65XVw/xf1ec7nKAuwyVXh28eSRRKWXxDOz9novmwdLPP0ci0TMEEuo06+rDzQClCpFTaFUqGrneDXSEYC+18u1nEuC+fVbmewD4EPBykVWibF5Rb4CsNmtKPNy70OWx3yAaq0PrjwpAEwyk8wrdU2hWSl1MwhuK3TIvvR/v163pe6BQnOxzczH1s2ktt4PXp6um8p9Yld2pvhT2PWFaTjo5w1HYzsFdIsNB3YtX7U8jU3T+J+fuul6WUz+quni7d+m6cK28XHyF22fxLbv1jaet+FrRBmc2HiOH13jaXrY7Rj7qu+2vlzQ8TbrvwPXe4eHXXT9TYl2m1erlHfv4eLU9t8p/A9IJUFrzI7prAAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAABgFBMVEUKEAgsVSIGCgU5aCsWJxEdNxdBcjHxMkwkSBzSNUUiOxnMCCpNVS0zJwePRjguFxAtTCLGEi+vKTeRJi90SzP1LkynQT3+/f2HuXYmUR5NGRu8PEHWmAFDbTDwqAFoHSNMOARlUjEdVB05cCxUSSh2VwR3pmjCLD7+uAB0ISdTeUe3GC2peALOLkIcSBhZh0xlSQRYRQdnmVmVawOvOz1xPCqEMyu6gwFlh1htl2GMwHvJjQErOyVJYkDZXHAdYSRKJxJZJiJ9sW2HVDnrqLRJMCBEVhhqZhJ7ih+BXgOfcwOBrXGgbwKwgmWxlRHVSF/caHveboDgeYrkipjjngHonKjvvMTxwsr76+0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7ZsM8AAAAgHRSTlP//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJmvoE0AAAx1SURBVHja7Z0Hd9s4EseJISCClGTJKo5lS4odx3GKndjpm93bfr33+/6f5DBgEQtAgiBo372neZuXrESRPw0HfwxAYOR5e9vb3va2t73tbW9729veejbKp4T4vRohU87cEUfEH9yT+YRTFz6WxMIPPGK9WiRuZnwp5gJZngbuwTyPTZGbdPK2OMWGRF58wnswvA5DPxF7N6OXmXdPwDtuSi7wunbtzx/43IP7lyrASw+4zUf5YONTgAdRWPDIxiZEpqL9efBQ/QJgcyLt/ewTeDBmDG3emjp6YGbEFtS8nW5sHppZUE8HgzYaInTDe2hmQU0u/FaNkIKr2ATrrgm8FmEtOhXuijnijFEa93XtP802xgFCXAQHUIbn4ARtxZkVOBBTV1P/gnV3dAFaGoK3xAZx05mho4mDKEZogUgKxllLdxu72h9E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">
+<meta name="theme-color" content="#0a1008"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Cóndor">
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e3e7da;--panel:#cdd5bf;--ink:#1b2a13;--line:#566a43;--red:#c8102e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1008;--panel:#111b0d;--ink:#b6f5a0;--line:#3d6b2e}}
+:root[data-theme="dark"]{--bg:#0a1008;--panel:#111b0d;--ink:#b6f5a0;--line:#3d6b2e}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 "Share Tech Mono",ui-monospace,monospace;display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px}
+h1{font:clamp(22px,6vw,32px)/1 "Black Ops One",Impact,sans-serif;margin:4px 0 0;letter-spacing:.05em}
+.hud{width:min(100%,480px);display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.hud div{border:1px solid var(--line);background:var(--panel);padding:4px 8px;font-size:12px}
+.hud b{display:block;font-size:18px;font-weight:400}
+#vd{color:var(--red)}
+canvas{width:min(100%,480px);aspect-ratio:3/4;display:block;background:#060b05;border:2px solid var(--line)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+button{font:inherit;background:var(--panel);color:var(--ink);border:2px solid var(--line);padding:8px 14px;cursor:pointer}
+button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.k{max-width:480px;text-align:center;font-size:13px}
+.pl{display:flex;gap:8px;align-items:center;width:min(100%,480px)}
+.pl input{flex:1;min-width:0;font:inherit;color:var(--ink);background:var(--panel);border:2px solid var(--line);padding:6px 8px}
+.pl input:focus-visible{outline:3px solid var(--red)}
+.rk{width:min(100%,480px);border-collapse:collapse;font-size:14px}
+.rk caption{text-align:left;margin-bottom:4px}
+.rk td{border:1px solid var(--line);padding:3px 8px}
+.rk td:last-child{text-align:right}
+.hud b{font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.app{display:grid;grid-template-columns:minmax(260px,360px) auto;grid-template-areas:"top cv" "bot cv";grid-template-rows:auto minmax(0,1fr);gap:10px 18px;height:calc(100dvh - 24px);justify-content:center;width:100%}
+.top{grid-area:top;display:flex;flex-direction:column;gap:10px}
+.bot{grid-area:bot;overflow:auto;min-height:0;display:flex;flex-direction:column;gap:10px;align-items:center}
+canvas{grid-area:cv;height:calc(100dvh - 24px);width:auto;aspect-ratio:3/4}
+@media (max-aspect-ratio:1/1){.app{grid-template-columns:minmax(0,1fr);grid-template-areas:"top" "cv" "bot";grid-template-rows:auto;height:auto;justify-items:center}canvas{height:min(62dvh,calc((100vw - 24px)*1.3333))}}
+.ask{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(6,11,5,.88);z-index:5;padding:16px}
+.ask[hidden]{display:none}
+.box{background:var(--panel);color:var(--ink);border:2px solid var(--line);padding:20px;max-width:340px;width:100%;display:flex;flex-direction:column;gap:10px}
+.box h2{font:24px/1.1 "Black Ops One",Impact,sans-serif;margin:0}
+.box p{margin:0}
+.box input{font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);padding:8px}
+.box input:focus-visible{outline:3px solid var(--red)}
+.tc{display:none;gap:8px;align-items:center;justify-content:space-between;width:min(100%,480px);user-select:none;-webkit-user-select:none;touch-action:none}
+.tc button{touch-action:none;min-width:54px;min-height:54px;font-size:22px;padding:0}
+.tc .dp{display:grid;grid-template-columns:repeat(3,54px);grid-template-rows:repeat(2,54px);gap:6px}
+.tc .fire{min-width:96px;min-height:96px;border-radius:50%;background:var(--red);color:#fff;font:16px "Black Ops One",Impact,sans-serif}
+@media (pointer:coarse){.tc{display:flex}}
+@media (pointer:coarse) and (max-aspect-ratio:1/1){canvas{height:min(50dvh,calc((100vw - 24px)*1.3333))}}
+</style></head><body>
+<div class="ask" id="ask"><div class="box"><h2>Identifícate, piloto</h2><p>Escribe tu nombre para registrar tu puntaje y tus medallas.</p><input id="nm" maxlength="14" placeholder="Tu nombre" autocomplete="off"><button id="go">Ingresar</button></div></div>
+<main class="app"><div class="top"><h1>OPERACIÓN CÓNDOR</h1>
+<label class="pl">Piloto <input id="pl" maxlength="14" placeholder="Escribe tu nombre" autocomplete="off"></label>
+<div class="hud"><div>PUNTAJE<b id="sc">00000</b></div><div>NIVEL<b id="lv">1</b></div><div>VIDAS<b id="vd">☠☠☠</b></div><div>NAVE<b id="nv">Cóndor I</b></div><div>PILOTO<b id="pi">Piloto</b></div><div>RÉCORD<b id="rc">00000</b></div></div>
+</div><canvas id="c" width="480" height="640"></canvas><div class="bot"><div class="tc"><div class="dp"><button data-k="ArrowUp" style="grid-area:1/2">▲</button><button data-k="ArrowLeft" style="grid-area:2/1">◀</button><button data-k="ArrowDown" style="grid-area:2/2">▼</button><button data-k="ArrowRight" style="grid-area:2/3">▶</button></div><button class="fire" data-k="Space">FUEGO</button></div>
+<div class="bar"><button id="ps">Pausa</button><button id="rs">Reiniciar</button><button id="cs">Cambiar nave</button><button id="mu">Sonido: sí</button></div>
+<table class="rk" id="onl" hidden><caption>En línea ahora (jugando a la vez)</caption><tbody id="on"></tbody></table>
+<table class="rk"><caption><span id="rcap">Ranking de pilotos: mejor puntaje por jugador, guardado en este dispositivo.</span> Cada 10000 puntos otorga una medalla y el mejor piloto lleva la corona.</caption><tbody id="rk"></tbody></table>
+<p class="k">Flechas para moverte, Espacio para disparar, C o 1-2-3 para cambiar de nave, P para pausa, R para reiniciar. Recoge los comodines hexagonales dorados para disparar en ráfaga.</p></div></main>
+<script>
+const cv=document.getElementById('c'),g=cv.getContext('2d'),W=480,H=640,$=i=>document.getElementById(i),rnd=(a,b)=>a+Math.random()*(b-a);
+let AC,muted=false,st='title',score,lives,lvl,ship=0,P,shots,mets,eb,ufo,kills,need,inv,fx,pw=[],burst=0,pilot='Piloto',newRec=false,sweep=0,keys={},shotT=0,spawnT=0,msg='',msgT=0,last=0;
+function ac(){try{AC=AC||new AudioContext();if(AC.state==='suspended')AC.resume()}catch(e){}}
+function snd(f,d,t='square',v=.06,e=0,w=0){try{ac();const T=AC.currentTime+w/1000,o=AC.createOscillator(),a=AC.createGain();o.type=t;o.frequency.setValueAtTime(f,T);if(e)o.frequency.exponentialRampToValueAtTime(e,T+d);a.gain.setValueAtTime(muted?.0001:v,T);a.gain.exponentialRampToValueAtTime(.0001,T+d);o.connect(a);a.connect(AC.destination);o.start(T);o.stop(T+d)}catch(x){}}
+const jingle=()=>[523,659,784,1047].forEach((f,i)=>snd(f,.15,'square',.05,0,i*110));
+const SH=[
+{n:'Cóndor',sp:7,cd:260,c:'#e8334a',d(){g.beginPath();g.moveTo(0,-20);g.lineTo(6,-6);g.lineTo(24,8);g.lineTo(12,6);g.lineTo(8,16);g.lineTo(0,10);g.lineTo(-8,16);g.lineTo(-12,6);g.lineTo(-24,8);g.lineTo(-6,-6);g.closePath()}},
+{n:'Halcón',sp:9.5,cd:340,c:'#a6e35c',d(){g.beginPath();g.moveTo(0,-23);g.lineTo(10,11);g.lineTo(0,5);g.lineTo(-10,11);g.closePath()}},
+{n:'Guardián',sp:5.5,cd:170,c:'#efe9d2',d(){g.beginPath();g.moveTo(0,-16);g.lineTo(14,-8);g.lineTo(23,13);g.lineTo(8,8);g.lineTo(0,14);g.lineTo(-8,8);g.lineTo(-23,13);g.lineTo(-14,-8);g.closePath()}}];
+const RK=['I','II','III','IV'],tier=()=>Math.min(4,lvl||1),pn=()=>($('pl').value.trim()||'Piloto').slice(0,14),esc=s=>s.replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+function board(){try{return JSON.parse(localStorage.getItem('condor.scores'))||{}}catch(e){return{}}}
+let base=0,medalN=0,shared=null,uid=null,room=null,dbc=null,pT=0;
+const rows=()=>{if(!shared)return board();const o={};Object.values(shared).forEach(v=>{o[v.name]=Math.max(o[v.name]||0,v.best||0)});return o};
+function save(){if(!(score>0))return;const b=board();newRec=score>base;if(score>(b[pilot]||0))b[pilot]=score;try{localStorage.setItem('condor.scores',JSON.stringify(b))}catch(e){}if(dbc&&uid&&score>((shared&&shared[uid]&&shared[uid].best)||0))dbc.doc('scores/'+uid).set({name:pilot,best:score,lvl:lvl,t:Date.now()}).catch(()=>{});rank();upHud()}
+function rank(){$('rk').innerHTML=Object.entries(rows()).sort((a,c)=>c[1]-a[1]).slice(0,5).map(([n,s],i)=>'<tr><td>'+(i+1)+'</td><td>'+(i?'':'👑 ')+esc(n)+(s>=10000?' 🎖️×'+Math.floor(s/10000):'')+'</td><td>'+String(s).padStart(5,'0')+'</td></tr>').join('')||'<tr><td colspan="3">Sin registros todavía</td></tr>'}
+function upHud(){const p=st==='title'?pn():pilot,b=Math.max(rows()[p]||0,score||0);$('sc').textContent=String(score||0).padStart(5,'0');$('lv').textContent=lvl||1;$('vd').textContent='☠'.repeat(Math.max(0,lives))||'—';$('nv').textContent=SH[ship].n+' '+RK[tier()-1];$('pi').textContent=p;$('rc').textContent=String(b).padStart(5,'0')}
+function reset(){if(st==='play'||st==='pause')save();pilot=pn();base=rows()[pilot]||0;medalN=0;$('ps').textContent='Pausa';try{localStorage.setItem('condor.last',pilot)}catch(e){}pw=[];burst=0;newRec=false;score=0;lives=3;lvl=1;P={x:W/2,y:H-70};shots=[];mets=[];eb=[];ufo=null;kills=0;need=7;inv=0;fx=[];shotT=0;st='play';msg='NIVEL 1';msgT=90;upHud();snd(440,.2,'square',.05,880)}
+function chg(){ship=(ship+1)%3;snd(660,.07);snd(880,.07,'square',.05,0,80);upHud()}
+function boom(x,y,c,n=14){for(let i=0;i<n;i++){const a=rnd(0,6.28),v=rnd(1,4);fx.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:rnd(20,40),c})}}
+function hit(){if(inv>0)return;lives--;inv=130;boom(P.x,P.y,'#ff6a3d',26);snd(300,.5,'sawtooth',.1,40);upHud();if(lives<=0){st='over';save();snd(400,1,'sawtooth',.1,35)}}
+function upd(d){
+ const s=SH[ship];
+ if(keys.ArrowLeft)P.x-=s.sp*d;if(keys.ArrowRight)P.x+=s.sp*d;if(keys.ArrowUp)P.y-=s.sp*d;if(keys.ArrowDown)P.y+=s.sp*d;
+ P.x=Math.max(24,Math.min(W-24,P.x));P.y=Math.max(60,Math.min(H-24,P.y));
+ shotT-=16.67*d;burst-=d;if(keys.Space&&shotT<=0){const n=Math.min(3,tier()),o=n===1?[0]:n===2?[-7,7]:[-9,0,9];o.forEach((x,i)=>shots.push({x:P.x+x,y:P.y-18,vx:n===3?(i-1)*(tier()>3?1.6:.9):0}));shotT=s.cd/(burst>0?3:1);snd(burst>0?1100:900,.07,'square',.035,300)}
+ shots.forEach(b=>{b.y-=9*d;b.x+=(b.vx||0)*d});
+ spawnT-=d;if(spawnT<=0){mets.push({x:rnd(20,W-20),y:-30,r:rnd(12,26),v:rnd(1.4,2.2)+lvl*.45,vx:rnd(-.6,.6),a:0,w:rnd(-.05,.05),p:Array.from({length:9},()=>rnd(.75,1.1))});spawnT=Math.max(10,62-lvl*8)*(ufo?2.2:1)*rnd(.7,1.3)}
+ mets.forEach(m=>{m.y+=m.v*d;m.x+=m.vx*d;m.a+=m.w*d;
+  shots.forEach(b=>{if(!b.dead&&!m.dead&&Math.hypot(b.x-m.x,b.y-m.y)<m.r+3){b.dead=m.dead=1;score+=10;kills++;if(Math.random()<.13)pw.push({x:m.x,y:m.y});boom(m.x,m.y,'#d9b36c');snd(160,.3,'sawtooth',.07,30);upHud()}});
+  if(!m.dead&&Math.hypot(P.x-m.x,P.y-m.y)<m.r*.8+11&&inv<=0){m.dead=1;boom(m.x,m.y,'#d9b36c');hit()}});
+ if(!ufo&&kills>=need){ufo={x:W/2,y:-40,hp:5+lvl*2,m:5+lvl*2,dx:1,f:60};msg='¡OVNI HOSTIL!';msgT=100;snd(300,.6,'triangle',.08,900)}
+ if(ufo){
+  if(ufo.y<90)ufo.y+=1.5*d;else{ufo.x+=ufo.dx*(1.7+lvl*.5)*d;if(ufo.x>W-40)ufo.dx=-1;if(ufo.x<40)ufo.dx=1}
+  ufo.f-=d;if(ufo.f<=0&&ufo.y>=90){ufo.f=Math.max(24,88-lvl*10);const a=Math.atan2(P.y-ufo.y,P.x-ufo.x),v=3+lvl*.3;(lvl>=6?[-.5,-.25,0,.25,.5]:lvl>=3?[-.25,0,.25]:[0]).forEach(o=>eb.push({x:ufo.x,y:ufo.y+10,vx:Math.cos(a+o)*v,vy:Math.sin(a+o)*v}));snd(220,.15,'sawtooth',.05,120)}
+  shots.forEach(b=>{if(ufo&&!b.dead&&Math.abs(b.x-ufo.x)<30&&Math.abs(b.y-ufo.y)<14){b.dead=1;ufo.hp--;boom(b.x,b.y,'#ffb000',5);snd(500,.05,'square',.05);
+   if(ufo.hp<=0){pw.push({x:ufo.x,y:ufo.y});boom(ufo.x,ufo.y,'#ffb000',50);snd(120,.8,'sawtooth',.1,25);score+=200*lvl;lvl++;kills=0;need=5+lvl*2;ufo=null;eb=[];msg='NIVEL '+lvl+' - NAVE '+RK[tier()-1];msgT=110;boom(P.x,P.y,SH[ship].c,30);save();jingle();upHud()}}})}
+ eb.forEach(b=>{b.x+=b.vx*d;b.y+=b.vy*d;if(Math.hypot(P.x-b.x,P.y-b.y)<13&&inv<=0){b.dead=1;hit()}});
+ shots=shots.filter(b=>!b.dead&&b.y>-10&&b.x>-10&&b.x<W+10);mets=mets.filter(m=>!m.dead&&m.y<H+40);eb=eb.filter(b=>!b.dead&&b.x>-10&&b.x<W+10&&b.y>-10&&b.y<H+10);
+ fx.forEach(p=>{p.x+=p.vx*d;p.y+=p.vy*d;p.l-=d});fx=fx.filter(p=>p.l>0);inv-=d;msgT-=d;const md=Math.floor(score/10000);if(md>medalN){medalN=md;msg='¡MEDALLA '+md+'!';msgT=110;jingle();boom(P.x,P.y,'#ffd36a',30)}pw.forEach(q=>{q.y+=1.6*d;if(Math.hypot(P.x-q.x,P.y-q.y)<24){q.dead=1;burst=420;snd(600,.08,'square',.06,1200);snd(900,.12,'square',.05,1500,90)}});pw=pw.filter(q=>!q.dead&&q.y<H+20)}
+function tx(s,x,y,sz,c,f='"Black Ops One",Impact,sans-serif'){g.font=sz+'px '+f;g.textAlign='center';g.fillStyle=c;g.fillText(s,x,y)}
+function drawShip(i,x,y,k,t=1){const s=SH[i],z=k*(1+.07*(t-1));g.save();g.translate(x,y);g.scale(z,z);if(t>=3){g.shadowColor=s.c;g.shadowBlur=16}s.d();g.fillStyle='#34502a';g.fill();g.strokeStyle=s.c;g.lineWidth=2;g.stroke();g.shadowBlur=0;if(t>=2){g.fillStyle=s.c;g.fillRect(-20,0,4,12);g.fillRect(16,0,4,12)}g.beginPath();g.arc(0,0,4,0,7);g.fillStyle='#c8102e';g.fill();g.beginPath();g.arc(0,0,2,0,7);g.fillStyle='#fff';g.fill();if(t>=4){g.strokeStyle='#ffd36a';g.lineWidth=2;for(let j=0;j<2;j++){g.beginPath();g.moveTo(-6,-8-j*5);g.lineTo(0,-13-j*5);g.lineTo(6,-8-j*5);g.stroke()}}g.restore()}
+function draw(){
+ g.fillStyle='#060b05';g.fillRect(0,0,W,H);g.lineWidth=1;g.strokeStyle='rgba(124,255,96,.13)';
+ for(let r=80;r<=400;r+=80){g.beginPath();g.arc(W/2,H/2,r,0,7);g.stroke()}
+ g.beginPath();g.moveTo(W/2,0);g.lineTo(W/2,H);g.moveTo(0,H/2);g.lineTo(W,H/2);g.stroke();
+ for(let i=0;i<14;i++){g.strokeStyle='rgba(124,255,96,'+(.24-i*.017)+')';g.beginPath();g.moveTo(W/2,H/2);g.lineTo(W/2+Math.cos(sweep-i*.05)*500,H/2+Math.sin(sweep-i*.05)*500);g.stroke()}
+ if(st==='title'){tx('OPERACIÓN CÓNDOR',W/2,190,38,'#b6f5a0');tx('Defiende el espacio aéreo',W/2,226,18,'#7cff60','"Share Tech Mono",monospace');drawShip(ship,W/2,350,3);tx(SH[ship].n.toUpperCase(),W/2,430,22,SH[ship].c);tx('Pulsa C para cambiar de nave',W/2,458,15,'#b6f5a0','"Share Tech Mono",monospace');tx('Récord de '+pn()+': '+(board()[pn()]||0),W/2,494,15,'#ffd36a','"Share Tech Mono",monospace');tx('ENTER, ESPACIO o toque para iniciar',W/2,530,18,'#ffb000','"Share Tech Mono",monospace');return}
+ mets.forEach(m=>{g.save();g.translate(m.x,m.y);g.rotate(m.a);g.beginPath();m.p.forEach((q,i)=>{const a=i*6.283/9;g[i?'lineTo':'moveTo'](Math.cos(a)*m.r*q,Math.sin(a)*m.r*q)});g.closePath();g.fillStyle='#2a2218';g.fill();g.strokeStyle='#d9b36c';g.lineWidth=2;g.stroke();g.restore()});
+ g.fillStyle='#9dff7a';shots.forEach(b=>g.fillRect(b.x-2,b.y-8,4,14));
+ g.fillStyle='#ff8a2a';eb.forEach(b=>{g.beginPath();g.arc(b.x,b.y,5,0,7);g.fill()});
+ if(ufo){const u=ufo;g.strokeStyle='#ffb000';g.lineWidth=2;g.fillStyle='#3a2a05';g.beginPath();g.ellipse(u.x,u.y,32,10,0,0,7);g.fill();g.stroke();g.beginPath();g.arc(u.x,u.y-4,14,Math.PI,0);g.stroke();
+  for(let i=-2;i<=2;i++){g.fillStyle=(Math.floor(sweep*8)+i)%2?'#ff4b4b':'#ffd36a';g.fillRect(u.x+i*10-2,u.y+2,4,4)}
+  g.lineWidth=1.5;[[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a,b])=>{g.beginPath();g.moveTo(u.x+a*44,u.y+b*22-b*8);g.lineTo(u.x+a*44,u.y+b*22);g.lineTo(u.x+a*44-a*8,u.y+b*22);g.stroke()});
+  g.strokeStyle='#ffb000';g.strokeRect(u.x-30,u.y-34,60,6);g.fillStyle='#ff4b4b';g.fillRect(u.x-30,u.y-34,60*u.hp/u.m,6)}
+ if(!(inv>0&&Math.floor(inv/6)%2))drawShip(ship,P.x,P.y,1,tier());
+ pw.forEach(q=>{g.save();g.translate(q.x,q.y);g.rotate(sweep*2);g.strokeStyle='#ffd36a';g.fillStyle='#3a2a05';g.lineWidth=2;g.beginPath();for(let j=0;j<6;j++){const a=j*1.047;g[j?'lineTo':'moveTo'](Math.cos(a)*14,Math.sin(a)*14)}g.closePath();g.fill();g.stroke();g.restore();tx('R',q.x,q.y+5,14,'#ffd36a','"Share Tech Mono",monospace')});
+ if(burst>0){g.fillStyle='#3a2a05';g.fillRect(14,14,110,8);g.fillStyle='#ffd36a';g.fillRect(14,14,110*burst/420,8);tx('RÁFAGA',69,40,13,'#ffd36a','"Share Tech Mono",monospace')}
+ if(score>=10000)tx('🎖️ ×'+Math.floor(score/10000),W-60,32,18,'#ffd36a','"Share Tech Mono",monospace');
+ fx.forEach(p=>{g.globalAlpha=Math.min(1,p.l/20);g.fillStyle=p.c;g.fillRect(p.x,p.y,3,3)});g.globalAlpha=1;
+ if(msgT>0&&st==='play'){g.globalAlpha=Math.min(1,msgT/30);tx(msg,W/2,H/2-60,34,'#ffb000');g.globalAlpha=1}
+ if(st==='pause'||st==='over'){g.fillStyle='rgba(6,11,5,.72)';g.fillRect(0,0,W,H)}
+ if(st==='pause')tx('PAUSA',W/2,H/2,40,'#b6f5a0');
+ if(st==='over'){tx('MISIÓN FALLIDA',W/2,H/2-30,38,'#e8334a');tx('Puntaje final: '+score+', nivel '+lvl+', medallas '+Math.floor(score/10000),W/2,H/2+10,18,'#b6f5a0','"Share Tech Mono",monospace');tx((newRec?'¡NUEVO RÉCORD de ':'Récord de ')+pilot+': '+(board()[pilot]||0),W/2,H/2+36,16,newRec?'#ffd36a':'#b6f5a0','"Share Tech Mono",monospace');tx('Pulsa R, ENTER o toca para reintentar',W/2,H/2+68,16,'#ffb000','"Share Tech Mono",monospace')}}
+function loop(t){requestAnimationFrame(loop);const d=Math.min(3,(t-(last||t))/16.67);last=t;sweep+=.025*d;if(st==='play')upd(d);if(room&&(pT+=d)>=30){pT=0;room.presence({n:st==='title'?pn():pilot,s:score|0,l:lvl|0}).catch(()=>{})}draw()}
+addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'){if(e.code==='Enter'){e.target.blur();if(e.target.id==='nm')$('go').click();else reset()}return}
+ if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Space'].includes(e.code))e.preventDefault();
+ keys[e.code]=true;ac();
+ if(e.code==='KeyC')chg();if(e.code==='KeyR')reset();if(e.code==='KeyM')$('mu').click();
+ if(e.code==='KeyP')$('ps').click();
+ if((st==='title'||st==='over')&&e.code==='Enter')reset();if(st==='title'&&e.code==='Space')reset();
+ if(/^Digit[123]$/.test(e.code)){ship=+e.key-1;snd(660,.07);upHud()}});
+addEventListener('keyup',e=>keys[e.code]=false);addEventListener('blur',()=>keys={});
+$('rs').onclick=e=>{reset();e.target.blur()};$('cs').onclick=e=>{chg();e.target.blur()};
+$('mu').onclick=e=>{muted=!muted;e.target.textContent='Sonido: '+(muted?'no':'sí');e.target.blur()};
+try{$('pl').value=localStorage.getItem('condor.last')||''}catch(e){}
+$('pl').addEventListener('input',()=>{if(st==='title')upHud()});
+$('nm').value=$('pl').value;
+$('go').onclick=()=>{$('pl').value=($('nm').value.trim()||'Piloto').slice(0,14);$('ask').hidden=true;try{localStorage.setItem('condor.last',$('pl').value)}catch(e){}upHud();rank()};
+addEventListener('pagehide',()=>{if(st==='play')save()});
+reset();st='title';rank();upHud();requestAnimationFrame(loop);$('nm').focus();
+$('ps').onclick=e=>{if(st==='play'||st==='pause')st=st==='play'?'pause':'play';$('ps').textContent=st==='pause'?'Reanudar':'Pausa';e.target.blur()};
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&st==='play')$('ps').click()});
+document.querySelectorAll('[data-k]').forEach(b=>{const k=b.dataset.k;b.addEventListener('pointerdown',e=>{e.preventDefault();ac();keys[k]=true;if(k==='Space'&&(st==='title'||st==='over'))reset()});['pointerup','pointercancel','pointerleave'].forEach(t=>b.addEventListener(t,e=>{e.preventDefault();keys[k]=false}))});
+cv.addEventListener('pointerdown',()=>{ac();if(st==='title'||st==='over')reset()});
+(async()=>{try{const u=await claude.use('user'),d=await claude.use('db'),r=await claude.use('room');uid=u?await u.id():null;
+if(d&&uid){dbc=d;d.collection('scores').orderBy('best','desc').limit(50).onSnapshot(s=>{shared={};s.docs.forEach(x=>{const v=x.data();if(v)shared[x.id]=v});$('rcap').textContent='Ranking del grupo (compartido).';rank();upHud()},()=>{})}
+if(r){room=r;$('onl').hidden=false;const show=ps=>{$('on').innerHTML=ps.filter(p=>p.presence&&p.presence.n).sort((a,b)=>(b.presence.s||0)-(a.presence.s||0)).map(p=>'<tr><td>'+esc(String(p.presence.n))+(p.isMe?' (tú)':'')+'</td><td>Nv '+(p.presence.l|0)+'</td><td>'+String(p.presence.s|0).padStart(5,'0')+'</td></tr>').join('')||'<tr><td>Nadie conectado</td></tr>'};show(r.peers());r.onPeers(c=>show(c.peers))}
+}catch(e){}})();
+
+/* ===== ONLINE (Firebase Realtime Database, API REST) ===== */
+const FB_URL='https://operacion-condor-ok-default-rtdb.firebaseio.com/';
+(()=>{const U=FB_URL.trim().replace(/\/+$/,'').replace(/\.json$/,'');if(!/^https:\/\//.test(U))return;
+let id;try{id=localStorage.getItem('condor.uid');if(!id){id='p'+Math.random().toString(36).slice(2,9)+Date.now().toString(36);localStorage.setItem('condor.uid',id)}}catch(e){id='p'+Math.random().toString(36).slice(2,9)}
+uid=id;const ok=()=>{},J=(p,m,b)=>fetch(U+'/'+p+'.json',{method:m,body:b?JSON.stringify(b):undefined,keepalive:m==='DELETE'}).then(r=>{if(!r.ok)throw new Error(r.status);return m==='GET'?r.json():null});
+dbc={doc:p=>({set:v=>J(p,'PUT',v).then(()=>{shared=shared||{};shared[p.slice(7)]=v;rank();upHud()})})};
+let lp=0;room={presence:o=>{const t=Date.now();if(t-lp<1500)return Promise.resolve();lp=t;return J('live/'+id,'PUT',{n:String(o.n).slice(0,14),s:o.s|0,l:o.l|0,t})}};
+const pull=()=>{J('scores','GET').then(d=>{shared=d||{};$('rcap').textContent='Ranking del grupo (en l\u00ednea).';rank();upHud()}).catch(ok);
+J('live','GET').then(d=>{const n=Date.now(),ps=Object.entries(d||{}).filter(([k,v])=>v&&v.n&&n-v.t<9000);$('onl').hidden=false;$('on').innerHTML=ps.sort((a,b)=>(b[1].s||0)-(a[1].s||0)).map(([k,v])=>'<tr><td>'+esc(String(v.n))+(k===id?' (t\u00fa)':'')+'</td><td>Nv '+(v.l|0)+'</td><td>'+String(v.s|0).padStart(5,'0')+'</td></tr>').join('')||'<tr><td>Nadie conectado</td></tr>'}).catch(ok)};
+pull();setInterval(pull,3000);
+addEventListener('pagehide',()=>{J('live/'+id,'DELETE').catch(ok)})})();
+</script></body></html>
